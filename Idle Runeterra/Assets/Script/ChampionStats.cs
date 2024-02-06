@@ -14,14 +14,14 @@ public abstract class ChampionStats : MonoBehaviour
 	[Header("Health")]
 	[SerializeField]
 	private float health = 1;
-	[SerializeField]
-	private float healthRegn = 0;
+	//[SerializeField]
+	//private float healthRegn = 0;
 
 	[Header("Mana")]
 	[SerializeField]
 	private int mana = 0;
-	[SerializeField]
-	private int manaRegn = 0;
+	//[SerializeField]
+	//private int manaRegn = 0;
 
 	[Header("Damage")]
 	[SerializeField]
@@ -40,10 +40,11 @@ public abstract class ChampionStats : MonoBehaviour
 	[Header("Crit")]
 	[SerializeField]
 	private int critChange = 15; // 15%
-	[SerializeField]
-	private int CritDamage = 2;
+								 //[SerializeField]
+								 //private int CritDamage = 2;
 
 	[Header("Movement speed")]
+	public bool movementAllowed = true;
 	public float movementSpeed = 1;
 
 	[Header("Team")]
@@ -86,6 +87,7 @@ public abstract class ChampionStats : MonoBehaviour
 	public float GetHealth() => health;
 	public float GetDamage() => damage;
 	public float GetAttackSpeed() => attackSpeed;
+	public float GetAttackRange() => attackRange;
 	public float GetCritChange() => critChange;
 	public int GetArmor() => armor;
 	public int GetMana() => mana;

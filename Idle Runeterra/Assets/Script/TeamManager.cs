@@ -9,8 +9,8 @@ public class TeamManager : MonoBehaviour
     public GameObject inhibiter;
     int gold;
     public List<tower> towers;
-    public List<champion> champions;
-    public List<minion> minions;
+    public List<Champion> champions;
+    public List<Minions> minions;
 
     // Start is called before the first frame update
     void Start()
@@ -26,14 +26,5 @@ public class TeamManager : MonoBehaviour
 }
 //need to be replaced with refrences to the accual classes
 public class tower
-{
-}
-
-public class champion
-{
-    string name;
-}
-
-public class minion
 {
 }
