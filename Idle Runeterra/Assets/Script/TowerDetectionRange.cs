@@ -19,6 +19,7 @@ public class TowerDetectionRange : MonoBehaviour
             return;
 
         else creatureDetection.Add(creature);
+
     }
 
     /// <summary>
