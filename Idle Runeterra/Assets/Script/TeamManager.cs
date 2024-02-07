@@ -7,7 +7,7 @@ public class TeamManager
     public GameObject spawnPoint;
     public GameObject nexus;
     public GameObject inhibiter;
-    int gold;
+    public int gold;
     public List<Tower> towers;
     public List<Champion> champions;
     public List<Minions> minions;
