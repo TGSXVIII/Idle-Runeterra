@@ -20,4 +20,24 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(battleScene.name);
     }
+    public TeamManager GetAllyTeam(ChampionStats.Team team)
+    {
+        return team switch
+        {
+            ChampionStats.Team.Player => allyTeamManager,
+            ChampionStats.Team.Enemy => enemyTeamManager,
+            _ => null,
+        };
+    }
+    public TeamManager GetEnemyTeam(ChampionStats.Team team)
+    {
+        return team switch
+        {
+            ChampionStats.Team.Player => enemyTeamManager,
+            ChampionStats.Team.Enemy => allyTeamManager,
+            _ => null,
+        };
+    }
 }
+
+
