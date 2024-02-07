@@ -7,39 +7,40 @@ public abstract class ChampionStats : MonoBehaviour
 {
 	[Header("Level")]
 	[SerializeField]
-	private float exp = 0;
+	protected float exp = 0;
 	public float levelRequirement = 5;
 	public int level = 1;
 
 	[Header("Health")]
 	[SerializeField]
-	private float health = 1;
+	protected float health = 1;
 	//[SerializeField]
 	//private float healthRegn = 0;
 
 	[Header("Mana")]
 	[SerializeField]
-	private int mana = 0;
+	protected int mana = 0;
 	//[SerializeField]
 	//private int manaRegn = 0;
 
 	[Header("Damage")]
 	[SerializeField]
-	private float damage = 1;
+	protected float damage = 1;
 	[SerializeField]
-	private float attackSpeed = 0;
+	protected float attackSpeed = 1;
+	protected float nextAttackIn = 0;
 	[SerializeField]
-	private float attackRange = 0.5f;
+	protected float attackRange = 0.5f;
 
 	[Header("Armor")]
 	[SerializeField]
-	private int armor = 0;
+	protected int armor = 0;
 	[SerializeField]
-	private int magicResist = 0;
+	protected int magicResist = 0;
 
 	[Header("Crit")]
 	[SerializeField]
-	private int critChange = 15; // 15%
+	protected int critChange = 15; // 15%
 								 //[SerializeField]
 								 //private int CritDamage = 2;
 
@@ -48,7 +49,7 @@ public abstract class ChampionStats : MonoBehaviour
 	public float movementSpeed = 1;
 
 	[Header("Team")]
-	//public TeamManager teamManager;
+	public TeamManager teamManager;
 	public Team team;
 
 	//[Header("Game manager")]

@@ -10,7 +10,9 @@ public abstract class CreatureMovement : ChampionStats
 	private Rigidbody2D rb;
 	[SerializeField]
 	private BoxCollider2D col;
+	public Animator animator;
 
+	public abstract void Spawn(Team team, TeamManager manager);
 	protected abstract void BasicAttack();
 	protected virtual void Movement()
 	{
