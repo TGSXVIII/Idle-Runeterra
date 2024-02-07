@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FirstHero : Champion
 {
+	public override void Spawn(Team team, TeamManager manager)
+	{
+		throw new System.NotImplementedException();
+	}
 	protected override void ActiveAbility()
 	{
 		throw new System.NotImplementedException();

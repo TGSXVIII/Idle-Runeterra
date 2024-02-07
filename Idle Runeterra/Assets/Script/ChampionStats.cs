@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Search;
 using UnityEngine;
 
@@ -7,51 +8,56 @@ public abstract class ChampionStats : MonoBehaviour
 {
 	[Header("Level")]
 	[SerializeField]
-	private float exp = 0;
+	protected float exp = 0;
 	public float levelRequirement = 5;
 	public int level = 1;
 
 	[Header("Health")]
 	[SerializeField]
-	private float health = 1;
-	[SerializeField]
-	private float healthRegn = 0;
+	protected float health = 1;
+	//[SerializeField]
+	//private float healthRegn = 0;
 
 	[Header("Mana")]
 	[SerializeField]
-	private int mana = 0;
-	[SerializeField]
-	private int manaRegn = 0;
+	protected int mana = 0;
+	//[SerializeField]
+	//private int manaRegn = 0;
 
 	[Header("Damage")]
 	[SerializeField]
-	private float damage = 1;
+	protected float damage = 1;
 	[SerializeField]
-	private float attackSpeed = 0;
+	protected float attackSpeed = 1;
+	protected float nextAttackIn = 0;
 	[SerializeField]
-	private float attackRange = 0.5f;
+	protected float attackRange = 0.5f;
 
 	[Header("Armor")]
 	[SerializeField]
-	private int armor = 0;
+	protected int armor = 0;
 	[SerializeField]
-	private int magicResist = 0;
+	protected int magicResist = 0;
 
 	[Header("Crit")]
 	[SerializeField]
-	private int critChange = 15; // 15%
-	[SerializeField]
-	private int CritDamage = 2;
+	protected int critChange = 15; // 15%
+								 //[SerializeField]
+								 //private int CritDamage = 2;
 
 	[Header("Movement speed")]
+	public bool movementAllowed = true;
 	public float movementSpeed = 1;
 
-	[Header("Team")]
-	//public TeamManager teamManager;
-	public Team team;
+	[Header("Exp Give")]
+	public int expToGive = 0;
+	public int goldFromDeath = 0;
 
-	//[Header("Game manager")]
-	//public Gamemanager gamemanager
+	[Header("Team")]
+	public bool isAlive = true;
+	public TeamManager teamManager;
+	public Team team;
+	private GameManager gameManager;
 
 	//[Header("Shop items")]
 	//List<ShopItem> items;
@@ -66,6 +72,11 @@ public abstract class ChampionStats : MonoBehaviour
 		TrueDamage,
 		NormalDamage,
 		MagicDamage
+	}
+
+	private void Awake()
+	{
+		gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
 	}
 
 	public void GetEXP(float exp)
@@ -86,6 +97,7 @@ public abstract class ChampionStats : MonoBehaviour
 	public float GetHealth() => health;
 	public float GetDamage() => damage;
 	public float GetAttackSpeed() => attackSpeed;
+	public float GetAttackRange() => attackRange;
 	public float GetCritChange() => critChange;
 	public int GetArmor() => armor;
 	public int GetMana() => mana;
@@ -130,5 +142,13 @@ public abstract class ChampionStats : MonoBehaviour
 		//items.RemoveAt(item);
 	}
 
-	protected abstract void Die();
+	protected virtual void Die()
+	{
+		TeamManager enemyTeam = gameManager.GetEnemyTeam(team);
+		enemyTeam.gold += goldFromDeath;
+		foreach (Champion champ in enemyTeam.champions.Where(c => c.isAlive))
+		{
+			champ.GetEXP(expToGive);
+		}
+	}
 }
