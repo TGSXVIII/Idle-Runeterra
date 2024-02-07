@@ -11,9 +11,10 @@ public class TowerShoot : MonoBehaviour
     public DamageType damageType;
     public Vector2 target;
 
-    public void Spawned(Tower tower)
+    public void Spawned(Tower tower, Vector2 target)
     {
         this.tower = tower;
+        this.target = target;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

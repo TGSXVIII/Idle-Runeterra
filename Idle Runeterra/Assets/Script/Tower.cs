@@ -39,7 +39,7 @@ public class Tower : Structure
     private void Attack()
     {
         GameObject shoot = Instantiate(towerShotsPreFab, TowerShootSpawnLocation.position, TowerShootSpawnLocation.rotation);
-        shoot.GetComponent<TowerShoot>().Spawned(this);
+        shoot.GetComponent<TowerShoot>().Spawned(this, DetectionRange.creatureDetection[0].transform.position);
     }
 
 #if UNITY_EDITOR
