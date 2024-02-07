@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class Minions : CreatureMovement
 {
-	[Header("Exp Give")]
-	public int expToGive = 0;
-	
 	[Header("Object and Scripts")]
 	public GameObject weaponPoint;
 	public CreatureInRange creatureInRange;
@@ -24,7 +21,6 @@ public class Minions : CreatureMovement
 		AttackRight,
 		AttackLeft,
 	}
-
 	public override void Spawn(Team team, TeamManager manager)
 	{
 		teamManager = manager;
@@ -60,13 +56,7 @@ public class Minions : CreatureMovement
 
 	protected override void Die()
 	{
-		// get right team...
-
-		foreach (Champion champ in new List<Champion>())
-		{
-			champ.GetEXP(expToGive);
-		}
-
+		base.Die();
 		Destroy(gameObject);
 	}
 }

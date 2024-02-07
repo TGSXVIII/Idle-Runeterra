@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour
     public TeamManager allyTeamManager;
     public TeamManager enemyTeamManager;
     public SceneAsset battleScene;
-  
-    public void StartGame(List<Champion> allyChampions, List<Champion> enemyChampions)
+
+	private void Awake()
+	{
+        StartGame(new(), new());
+	}
+	public void StartGame(List<Champion> allyChampions, List<Champion> enemyChampions)
     {
         allyTeamManager = new TeamManager(allyChampions);
         enemyTeamManager = new TeamManager(enemyChampions);

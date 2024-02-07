@@ -145,7 +145,7 @@ MonoBehaviour:
   exp: 0
   levelRequirement: 5
   level: 1
-  health: 400
+  health: 20
   mana: 0
   damage: 2
   attackSpeed: 0.4
@@ -155,14 +155,16 @@ MonoBehaviour:
   critChange: 15
   movementAllowed: 1
   movementSpeed: 1
+  expToGive: 2
+  goldFromDeath: 0
+  isAlive: 1
   team: 0
   rb: {fileID: 4476300144691468162}
   col: {fileID: 3650176894448058388}
   animator: {fileID: 5571666540909224426}
-  expToGive: 2
-  weaponPoint: {fileID: 0}
+  weaponPoint: {fileID: 7048740494788702626}
   creatureInRange: {fileID: 936463232564579741}
-  sword: {fileID: 8142053605167214623}
+  sword: {fileID: 6938702112636624465}
 --- !u!212 &1597585750946484397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -309,7 +311,7 @@ GameObject:
   - component: {fileID: 7485419810237863801}
   - component: {fileID: 6887624485612774265}
   - component: {fileID: 6053796396661981787}
-  - component: {fileID: 8142053605167214623}
+  - component: {fileID: 6938702112636624465}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -326,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 2576727658827539330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.81999993, z: 0}
+  m_LocalPosition: {x: 0, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -419,7 +421,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &8142053605167214623
+--- !u!114 &6938702112636624465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,12 +430,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2576727658827539330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a11a1045d49f84eae03f6d113c964b, type: 3}
+  m_Script: {fileID: 11500000, guid: cad0d7181a308fe4eabc3350ce864dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 521957897187003773}
   damageType: 1
-  swordHitSomething: 0
+  HitSomething: 0
 --- !u!1 &7048740494788702626
 GameObject:
   m_ObjectHideFlags: 0

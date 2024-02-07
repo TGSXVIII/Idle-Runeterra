@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponHitting : MonoBehaviour
+public abstract class WeaponHitting : MonoBehaviour
 {
 	public CreatureMovement creature;
 	public ChampionStats.DamageType damageType;
-	public bool swordHitSomething = false;
+	public bool HitSomething = false;
 
-	public void GettingReady() => swordHitSomething = false;
+	public abstract void GettingReady();
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	protected abstract void OnTriggerEnter2D(Collider2D collision);
+	
+	protected bool HitEnemyCreature(Collider2D collision, out CreatureMovement enemy)
 	{
-		if (swordHitSomething)
-			return;
+		enemy = null;
+		if (HitSomething)
+			return false;
 
 		if (!collision.TryGetComponent(out CreatureMovement creature))
-			return;
+			return false;
 
-		if (creature.team == this.creature.team)
-			return;
-
-		swordHitSomething = true;
-		creature.ReciveDamage(this.creature.GetDamage(), damageType);
+		enemy = creature;
+		return creature.team != this.creature.team;
 	}
 }

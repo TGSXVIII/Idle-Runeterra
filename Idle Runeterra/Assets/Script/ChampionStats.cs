@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Search;
 using UnityEngine;
 
@@ -48,12 +49,15 @@ public abstract class ChampionStats : MonoBehaviour
 	public bool movementAllowed = true;
 	public float movementSpeed = 1;
 
+	[Header("Exp Give")]
+	public int expToGive = 0;
+	public int goldFromDeath = 0;
+
 	[Header("Team")]
+	public bool isAlive = true;
 	public TeamManager teamManager;
 	public Team team;
-
-	//[Header("Game manager")]
-	//public Gamemanager gamemanager
+	private GameManager gameManager;
 
 	//[Header("Shop items")]
 	//List<ShopItem> items;
@@ -68,6 +72,11 @@ public abstract class ChampionStats : MonoBehaviour
 		TrueDamage,
 		NormalDamage,
 		MagicDamage
+	}
+
+	private void Awake()
+	{
+		gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
 	}
 
 	public void GetEXP(float exp)
@@ -133,5 +142,13 @@ public abstract class ChampionStats : MonoBehaviour
 		//items.RemoveAt(item);
 	}
 
-	protected abstract void Die();
+	protected virtual void Die()
+	{
+		TeamManager enemyTeam = gameManager.GetEnemyTeam(team);
+		enemyTeam.gold += goldFromDeath;
+		foreach (Champion champ in enemyTeam.champions.Where(c => c.isAlive))
+		{
+			champ.GetEXP(expToGive);
+		}
+	}
 }
