@@ -17,8 +17,3 @@ public class TeamManager
         champions = champ;
     }
 }
-//need to be replaced with refrences to the accual classes
-public class Tower
-{
-}
-
