@@ -35,7 +35,7 @@ public class BattleOverview : MonoBehaviour
         CreateBattleOverview(enemyChampionSprite, enemyChampionName, enemyStructureSprite, enemyStructureName, enemyMinionSprite, enemyMinionName, enemyStartGoldText, manager.enemyTeamManager);
         battleOverview.enabled = true;
     }
-    private void CreateBattleOverview(List<Image> enemyChampionSprite,
+    private void CreateBattleOverview(List<Image> ChampionSprite,
     List<TextMeshProUGUI> ChampionName,
     List<Image> StructureSprite, 
     List<TextMeshProUGUI> StructureName, 
@@ -47,7 +47,7 @@ public class BattleOverview : MonoBehaviour
         string[] minions = { "Melee - ", "Caster - ", "Cannon - ", "Super - " };
         for (int i = 0; i < Team.champions.Count; i++)
         {
-            //ChampionSprite[i].sprite = Team.champions[i].GetIcon();
+            ChampionSprite[i].sprite = Team.champions[i].GetIcon();
             ChampionName[i].text = Team.champions[i].ChanmpionName + " - " + Team.champions[i].level;
         }
 
@@ -63,7 +63,7 @@ public class BattleOverview : MonoBehaviour
 
         for (int i = 0; i < Team.minions.Count; i++)
         {
-            //MinionSprite[i].sprite = Team.minions[i].GetIcon();
+            MinionSprite[i].sprite = Team.minions[i].GetIcon();
             MinionName[i].text = minions[i] + Team.minions[i].level;
         }
         StartGoldText.text = "Starting Gold - " + Team.gold;
