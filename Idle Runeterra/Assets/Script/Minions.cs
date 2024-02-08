@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class Minions : CreatureMovement
 {
-	[Header("Object and Scripts")]
+	[Header("Attack method")]
 	public CreatureInRange creatureInRange;
 	public WeaponHitting weapon;
+	[Tooltip("This only going ")]
 	public string AttackAnimationName = "Attack";
 
 	private float timeToNextAttack = 0;
@@ -40,7 +41,7 @@ public class Minions : CreatureMovement
 
 	protected override void BasicAttack()
 	{
-		animator.Play(AttackAnimationName);
+		animator.SetTrigger("Attack");
 	}
 
 	public void ReadierOrShooting()

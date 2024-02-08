@@ -12,6 +12,7 @@ public class SwordHitting : WeaponHitting
 			return;
 
 		HitSomething = true;
+		Debug.Log("hit: " + enemy);
 		enemy.ReciveDamage(creature.GetDamage(), damageType);
 	}
 }
