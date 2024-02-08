@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public abstract class CreatureMovement : ChampionStats
 {
 	[Header("Componets")]
 	[SerializeField]
+	[Tooltip("So it can \"walk\"")]
 	private Rigidbody2D rb;
 	[SerializeField]
-	private BoxCollider2D col;
+	[Tooltip("The Attack Range collider")]
+	private BoxCollider2D AttackRange;
+	[Tooltip("You don't want a static image... right?!")]
 	public Animator animator;
 
 	public abstract void Spawn(Team team, TeamManager manager);
@@ -18,7 +22,8 @@ public abstract class CreatureMovement : ChampionStats
 	{
 		if (!movementAllowed)
 			return;
-
+		
+		animator.SetBool("Moving", true);
 		rb.MovePosition(rb.position +
 			new Vector2(movementSpeed * Time.deltaTime, 0f) *
 			(team == Team.Player ? Vector2.right : Vector2.left));
@@ -32,7 +37,10 @@ public abstract class CreatureMovement : ChampionStats
 #if UNITY_EDITOR
 	private void OnValidate()
 	{
-		col.edgeRadius = GetAttackRange();
+		if (AttackRange != null)
+		{
+			AttackRange.edgeRadius = GetAttackRange();
+		}
 	}
 #endif
 }

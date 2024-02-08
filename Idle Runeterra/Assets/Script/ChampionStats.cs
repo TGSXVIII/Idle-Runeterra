@@ -41,6 +41,7 @@ public abstract class ChampionStats : MonoBehaviour
 
 	[Header("Crit")]
 	[SerializeField]
+	[Tooltip("This is in %. 1 = 1%")]
 	protected int critChange = 15; // 15%
 								 //[SerializeField]
 								 //private int CritDamage = 2;
@@ -58,6 +59,8 @@ public abstract class ChampionStats : MonoBehaviour
 	public TeamManager teamManager;
 	public Team team;
 	private GameManager gameManager;
+	[SerializeField]
+	protected Sprite icon;
 
 	//[Header("Shop items")]
 	//List<ShopItem> items;
@@ -90,10 +93,8 @@ public abstract class ChampionStats : MonoBehaviour
 			LevelUP();
 		}
 	}
-	public void LevelUP()
-	{
+	public abstract void LevelUP();
 
-	}
 	public float GetHealth() => health;
 	public float GetDamage() => damage;
 	public float GetAttackSpeed() => attackSpeed;
@@ -101,7 +102,7 @@ public abstract class ChampionStats : MonoBehaviour
 	public float GetCritChange() => critChange;
 	public int GetArmor() => armor;
 	public int GetMana() => mana;
-
+	public Sprite GetIcon() => icon;
 	public void ReciveDamage(float damage, DamageType type)
 	{
 		float realDamage;
