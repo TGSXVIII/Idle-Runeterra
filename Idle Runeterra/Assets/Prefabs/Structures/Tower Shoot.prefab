@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7661198585391468936}
-  movementSpeed: 1
+  movementSpeed: 10
   tower: {fileID: 0}
   damageType: 0
   target: {x: 0, y: 0}

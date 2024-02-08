@@ -6,7 +6,7 @@ using static ChampionStats;
 public class TowerShoot : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float movementSpeed = 1;
+    public float movementSpeed = 10;
     public Tower tower;
     public DamageType damageType;
     public Vector2 target;
