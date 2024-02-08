@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         allyTeamManager = new TeamManager(allyChampions);
         enemyTeamManager = new TeamManager(enemyChampions);
-        //SceneManager.LoadSceneAsync(battleScene.name, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(battleScene.name, LoadSceneMode.Additive);
     }
     public void EndGame()
     {
