@@ -77,7 +77,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 10
+  m_EdgeRadius: 25
 --- !u!114 &520190417607704870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +134,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6577791731266744050}
   - component: {fileID: 7370766957071951581}
-  - component: {fileID: 944747096476819665}
   - component: {fileID: 2635331760300798592}
   - component: {fileID: 8932520899360153069}
   - component: {fileID: 4560104127103959270}
@@ -182,7 +181,7 @@ MonoBehaviour:
   mana: 0
   damage: 1
   attackSpeed: 2
-  attackRange: 10
+  attackRange: 25
   armor: 0
   magicResist: 0
   critChange: 15
@@ -193,28 +192,11 @@ MonoBehaviour:
   isAlive: 1
   team: 0
   rb: {fileID: 8932520899360153069}
-  col: {fileID: 970007130947072251}
+  AttackRange: {fileID: 970007130947072251}
   animator: {fileID: 9150025177318542123}
-  weaponPoint: {fileID: 1000666464965947627}
   creatureInRange: {fileID: 520190417607704870}
-  sword: {fileID: 944747096476819665}
---- !u!114 &944747096476819665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579463090246732800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a7672c69ee26f41877ccb0694b991c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creature: {fileID: 7370766957071951581}
-  damageType: 2
-  HitSomething: 0
-  BulletSpawnPoint: {fileID: 1379308421516122147}
-  magicBulletPrefab: {fileID: 5910980217953897533, guid: df725c09680fce3449d0358016d71bee, type: 3}
+  weapon: {fileID: 3330180906593925407}
+  AttackAnimationName: Attack
 --- !u!212 &2635331760300798592
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -391,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490881132693060670}
   - component: {fileID: 5697043163559205263}
+  - component: {fileID: 3330180906593925407}
   m_Layer: 0
   m_Name: Staff
   m_TagString: Untagged
@@ -456,7 +439,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -466,3 +449,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3330180906593925407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846771835251908603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e2581d550c6e8449e79a344fd3c2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 7370766957071951581}
+  damageType: 2
+  HitSomething: 0
+  BulletSpawnPoint: {fileID: 1379308421516122147}
+  bulletPrefab: {fileID: 5910980217953897533, guid: df725c09680fce3449d0358016d71bee, type: 3}

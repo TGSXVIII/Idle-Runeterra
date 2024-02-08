@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static ChampionStats;
 
-public class MagicBulletHitting : WeaponHitting
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
+public class NormalBullet : WeaponHitting
 {
 	public Rigidbody2D rb;
 	public float movementSpeed = 1;
@@ -13,7 +14,7 @@ public class MagicBulletHitting : WeaponHitting
 		this.creature = creature;
 	}
 
-	protected override void OnTriggerEnter2D(Collider2D collision) 
+	protected override void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (!HitEnemyCreature(collision, out CreatureMovement enemy))
 			return;
@@ -29,5 +30,5 @@ public class MagicBulletHitting : WeaponHitting
 			(creature.team == Team.Player ? Vector2.right : Vector2.left));
 	}
 
-	public override void GettingReady() { }
+	public override void ReadierOrShooting() { }
 }
