@@ -8,7 +8,7 @@ public abstract class WeaponHitting : MonoBehaviour
 	public ChampionStats.DamageType damageType;
 	public bool HitSomething = false;
 
-	public abstract void GettingReady();
+	public abstract void ReadierOrShooting();
 
 	protected abstract void OnTriggerEnter2D(Collider2D collision);
 	

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwordHitting : WeaponHitting
 {
-	public override void GettingReady() => HitSomething = false;
+	public override void ReadierOrShooting() => HitSomething = false;
 
 	protected override void OnTriggerEnter2D(Collider2D collision)
 	{

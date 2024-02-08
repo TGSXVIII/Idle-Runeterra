@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a039a3d7bfc512c40ad660857e487d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minion: {fileID: 1579463090246732800, guid: a7effb5f9df13684daabeeb68a52d30e, type: 3}
+  minion: {fileID: 2360977998779879983, guid: 5cbf5c3fd6e05f74e995c87713a330b4, type: 3}
   Team: 0
 --- !u!4 &523554163
 Transform:
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a039a3d7bfc512c40ad660857e487d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minion: {fileID: 2360977998779879983, guid: 5cbf5c3fd6e05f74e995c87713a330b4, type: 3}
+  minion: {fileID: 7199173522537496049, guid: 23fdfa42eb25e5b4baabd2169f7f30c0, type: 3}
   Team: 1
 --- !u!4 &1063927241
 Transform:

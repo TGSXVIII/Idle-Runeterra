@@ -41,6 +41,7 @@ public abstract class ChampionStats : MonoBehaviour
 
 	[Header("Crit")]
 	[SerializeField]
+	[Tooltip("This is in %. 1 = 1%")]
 	protected int critChange = 15; // 15%
 								 //[SerializeField]
 								 //private int CritDamage = 2;
@@ -90,10 +91,8 @@ public abstract class ChampionStats : MonoBehaviour
 			LevelUP();
 		}
 	}
-	public void LevelUP()
-	{
+	public abstract void LevelUP();
 
-	}
 	public float GetHealth() => health;
 	public float GetDamage() => damage;
 	public float GetAttackSpeed() => attackSpeed;

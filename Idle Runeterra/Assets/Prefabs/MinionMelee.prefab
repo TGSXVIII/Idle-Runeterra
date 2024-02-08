@@ -160,11 +160,11 @@ MonoBehaviour:
   isAlive: 1
   team: 0
   rb: {fileID: 4476300144691468162}
-  col: {fileID: 3650176894448058388}
+  AttackRange: {fileID: 3650176894448058388}
   animator: {fileID: 5571666540909224426}
-  weaponPoint: {fileID: 7048740494788702626}
   creatureInRange: {fileID: 936463232564579741}
-  sword: {fileID: 6938702112636624465}
+  weapon: {fileID: 6938702112636624465}
+  AttackAnimationName: Attack
 --- !u!212 &1597585750946484397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

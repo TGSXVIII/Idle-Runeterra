@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 5892679261596196270}
-  creaturesInRange: []
+  InRange: []
 --- !u!1 &1763066630387661598
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,9 +206,12 @@ MonoBehaviour:
   critChange: 15
   movementAllowed: 1
   movementSpeed: 1
+  expToGive: 0
+  goldFromDeath: 0
+  isAlive: 1
   team: 0
   rb: {fileID: 411762149615804299}
-  col: {fileID: 868295442704298745}
+  AttackRange: {fileID: 868295442704298745}
   animator: {fileID: 7652241195140895282}
   ChanmpionName: Bob
   faction: 0

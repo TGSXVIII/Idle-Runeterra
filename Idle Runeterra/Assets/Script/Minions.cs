@@ -7,31 +7,21 @@ using UnityEngine;
 public class Minions : CreatureMovement
 {
 	[Header("Object and Scripts")]
-	public GameObject weaponPoint;
 	public CreatureInRange creatureInRange;
-	public WeaponHitting sword;
+	public WeaponHitting weapon;
+	public string AttackAnimationName = "Attack";
 
-	private AttackAnimation attackAnimation;
 	private float timeToNextAttack = 0;
 	private float animationLength;
 
-	private enum AttackAnimation
-	{
-		Idle,
-		AttackRight,
-		AttackLeft,
-	}
 	public override void Spawn(Team team, TeamManager manager)
 	{
 		teamManager = manager;
 		this.team = team;
 		bool playerTeam = team == Team.Player;
-		float x = weaponPoint.transform.localPosition.x * (playerTeam ? 1 : -1);
-		weaponPoint.transform.localPosition = new Vector3(x, weaponPoint.transform.localPosition.y);
-		attackAnimation = playerTeam ? AttackAnimation.AttackRight : AttackAnimation.AttackLeft;
-
+		transform.Rotate(0, playerTeam ? 0 : 180, 0);
 		animationLength = animator.runtimeAnimatorController.animationClips.First(
-			c => c.name.Contains(attackAnimation.ToString())
+			c => c.name.Contains(AttackAnimationName)
 			).length;
 	}
 
@@ -50,13 +40,22 @@ public class Minions : CreatureMovement
 
 	protected override void BasicAttack()
 	{
-		sword.GettingReady();
-		animator.Play(attackAnimation.ToString());
+		animator.Play(AttackAnimationName);
+	}
+
+	public void ReadierOrShooting()
+	{
+		weapon.ReadierOrShooting();
 	}
 
 	protected override void Die()
 	{
 		base.Die();
 		Destroy(gameObject);
+	}
+
+	public override void LevelUP()
+	{
+		throw new System.NotImplementedException();
 	}
 }
