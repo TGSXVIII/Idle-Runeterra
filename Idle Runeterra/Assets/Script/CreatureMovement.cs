@@ -22,7 +22,8 @@ public abstract class CreatureMovement : ChampionStats
 	{
 		if (!movementAllowed)
 			return;
-
+		
+		animator.SetBool("Moving", true);
 		rb.MovePosition(rb.position +
 			new Vector2(movementSpeed * Time.deltaTime, 0f) *
 			(team == Team.Player ? Vector2.right : Vector2.left));
@@ -36,7 +37,10 @@ public abstract class CreatureMovement : ChampionStats
 #if UNITY_EDITOR
 	private void OnValidate()
 	{
-		AttackRange.edgeRadius = GetAttackRange();
+		if (AttackRange != null)
+		{
+			AttackRange.edgeRadius = GetAttackRange();
+		}
 	}
 #endif
 }

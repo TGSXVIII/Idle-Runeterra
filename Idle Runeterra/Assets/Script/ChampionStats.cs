@@ -59,6 +59,8 @@ public abstract class ChampionStats : MonoBehaviour
 	public TeamManager teamManager;
 	public Team team;
 	private GameManager gameManager;
+	[SerializeField]
+	protected Sprite icon;
 
 	//[Header("Shop items")]
 	//List<ShopItem> items;
@@ -100,7 +102,7 @@ public abstract class ChampionStats : MonoBehaviour
 	public float GetCritChange() => critChange;
 	public int GetArmor() => armor;
 	public int GetMana() => mana;
-
+	public Sprite GetIcon() => icon;
 	public void ReciveDamage(float damage, DamageType type)
 	{
 		float realDamage;

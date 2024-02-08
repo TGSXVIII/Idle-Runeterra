@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class CreatureInRange : MonoBehaviour
 {
     public CreatureMovement creature;
@@ -13,6 +14,7 @@ public class CreatureInRange : MonoBehaviour
 		if (AllowMovement(collision, out CreatureMovement creature))
 		{
 			this.creature.movementAllowed = false;
+			this.creature.animator.SetBool("Moving", false);
 			InRange.Add(creature);
 		}
 	}
