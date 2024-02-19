@@ -3383,7 +3383,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4081729774369718819}
         m_TargetAssemblyTypeName: BattleOverview, Assembly-CSharp
-        m_MethodName: cancel
+        m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3800,7 +3800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9158948928415937809}
+      - m_Target: {fileID: 4081729774369718819}
         m_TargetAssemblyTypeName: BattleOverview, Assembly-CSharp
         m_MethodName: Battle
         m_Mode: 1
@@ -7247,7 +7247,7 @@ MonoBehaviour:
   - {fileID: 4583769632297102711}
   - {fileID: 7558379073005111465}
   - {fileID: 7801405793508662449}
-  allychampionName:
+  allyChampionName:
   - {fileID: 6235931857560615940}
   - {fileID: 380120479535932809}
   - {fileID: 5202544501472590535}
@@ -7280,7 +7280,7 @@ MonoBehaviour:
   - {fileID: 6600950975133906837}
   - {fileID: 9217805928895288725}
   - {fileID: 4303503265990379707}
-  enemychampionName:
+  enemyChampionName:
   - {fileID: 7363930723102193806}
   - {fileID: 3299311023068677942}
   - {fileID: 368282070741114848}
