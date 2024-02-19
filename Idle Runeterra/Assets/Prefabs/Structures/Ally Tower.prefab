@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1773962569792260382}
   - component: {fileID: 5977820648720865727}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Ally Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30.2, y: 1.37, z: 0}
-  m_LocalScale: {x: 3.1220515, y: 9.119078, z: 1}
+  m_LocalScale: {x: 18, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8724637861684892709}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83d5307020f07fe4082787adaec5e80d, type: 3}
   m_Color: {r: 0.90588236, g: 0.8666667, b: 0.8666667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.022925794, y: -0.0017194599}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33515, y: 0.50824046}
   m_EdgeRadius: 0
 --- !u!114 &5977820648720865727
 MonoBehaviour:
@@ -155,7 +155,7 @@ MonoBehaviour:
   damageMultiplier: 0
   boxCollider2D: {fileID: 4392981049825072677}
   DetectionRange: {fileID: 4706096538271140725}
-  TowerShootSpawnLocation: {fileID: 0}
+  TowerShootSpawnLocation: {fileID: 4141704592422292161}
   towerShotsPreFab: {fileID: 4866470663281982099, guid: cfd936fa1b0b5784789d6c95ff200d6c, type: 3}
 --- !u!1 &5851584604336041637
 GameObject:
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.065334976, y: -0.061899543}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -233,7 +233,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 9}
+  m_Size: {x: 0.9686891, y: 4.4194565}
   m_EdgeRadius: 10
 --- !u!114 &4706096538271140725
 MonoBehaviour:
