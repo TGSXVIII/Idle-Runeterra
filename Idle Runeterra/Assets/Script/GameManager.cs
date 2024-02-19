@@ -10,14 +10,11 @@ public class GameManager : MonoBehaviour
     public TeamManager enemyTeamManager;
     public SceneAsset battleScene;
 
-	private void Awake()
-	{
-        StartGame(new(), new());
-	}
-	public void StartGame(List<Champion> allyChampions, List<Champion> enemyChampions)
+	public void StartGame()
     {
-        allyTeamManager = new TeamManager(allyChampions);
-        enemyTeamManager = new TeamManager(enemyChampions);
+        //load if not existing
+        //allyTeamManager ??= new TeamManager(allyChampions);
+        //enemyTeamManager ??= new TeamManager(enemyChampions);
         SceneManager.LoadSceneAsync(battleScene.name, LoadSceneMode.Additive);
     }
     public void EndGame()
@@ -43,5 +40,3 @@ public class GameManager : MonoBehaviour
         };
     }
 }
-
-
