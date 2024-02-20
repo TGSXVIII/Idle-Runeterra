@@ -9,7 +9,7 @@ public class Minions : CreatureMovement
 	[Header("Attack method")]
 	public CreatureInRange creatureInRange;
 	public WeaponHitting weapon;
-	[Tooltip("This only going ")]
+	[Tooltip("Only change this if you don't have \"Attack\" in your animation name.")]
 	public string AttackAnimationName = "Attack";
 
 	private float timeToNextAttack = 0;
@@ -32,7 +32,7 @@ public class Minions : CreatureMovement
 		{
 			timeToNextAttack -= Time.deltaTime;
 		}
-		if (timeToNextAttack <= 0 && creatureInRange.InRange.Count > 0)
+		if (timeToNextAttack <= 0 && creatureInRange.targetsInRange.Count > 0)
 		{
 			timeToNextAttack = animationLength + GetAttackSpeed();
 			BasicAttack();

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
-    public int Health;
+    public float Health;
     public ChampionStats.Team team;
     
-    public void ReciveDamage(int Damage)
+    public void ReciveDamage(float Damage)
     {
         Health -= Damage;
     }

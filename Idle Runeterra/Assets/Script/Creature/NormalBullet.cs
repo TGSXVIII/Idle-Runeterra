@@ -16,11 +16,19 @@ public class NormalBullet : WeaponHitting
 
 	protected override void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (!HitEnemyCreature(collision, out CreatureMovement enemy))
-			return;
+		if (HitEnemyCreature(collision, out CreatureMovement enemy))
+		{
+			enemy.ReciveDamage(creature.GetDamage(), damageType);
+			HitSomething = true;
+		}
+		else if (HitEnemyStructure(collision, out Structure structure))
+		{
+			structure.ReciveDamage(creature.GetDamage());
+			HitSomething =true;
+		}
 
-		enemy.ReciveDamage(creature.GetDamage(), damageType);
-		Destroy(gameObject);
+		if (HitSomething)
+			Destroy(gameObject);
 	}
 
 	private void Update()

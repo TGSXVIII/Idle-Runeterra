@@ -24,4 +24,16 @@ public abstract class WeaponHitting : MonoBehaviour
 		enemy = creature;
 		return creature.team != this.creature.team;
 	}
+	protected bool HitEnemyStructure(Collider2D collistion, out Structure enemy)
+	{
+		enemy = null;
+		if (HitSomething)
+			return false;
+
+		if (!collistion.TryGetComponent(out Structure structure))
+			return false;
+
+		enemy = structure;
+		return creature.team != structure.team;
+	}
 }

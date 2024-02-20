@@ -6,42 +6,49 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public TeamManager allyTeamManager;
-    public TeamManager enemyTeamManager;
-    public SceneAsset battleScene;
+	public TeamManager allyTeamManager;
+	public TeamManager enemyTeamManager;
+	public SceneAsset battleScene;
 
+	[Header("test")]
+	public GameObject championPrefab;
+	public int test = 5;
 	private void Awake()
 	{
-        StartGame(new(), new());
+		List<Champion> champions = new List<Champion>();
+		for (int i = 0; i < test; i++)
+		{
+			champions.Add(Instantiate(championPrefab).GetComponent<Champion>());
+		}
+		allyTeamManager = new TeamManager(champions);
+		enemyTeamManager = new TeamManager(new());
 	}
 	public void StartGame(List<Champion> allyChampions, List<Champion> enemyChampions)
-    {
-        allyTeamManager = new TeamManager(allyChampions);
-        enemyTeamManager = new TeamManager(enemyChampions);
-        SceneManager.LoadSceneAsync(battleScene.name, LoadSceneMode.Additive);
-    }
-    public void EndGame()
-    {
-        SceneManager.UnloadSceneAsync(battleScene.name);
-    }
-    public TeamManager GetAllyTeam(ChampionStats.Team team)
-    {
-        return team switch
-        {
-            ChampionStats.Team.Player => allyTeamManager,
-            ChampionStats.Team.Enemy => enemyTeamManager,
-            _ => null,
-        };
-    }
-    public TeamManager GetEnemyTeam(ChampionStats.Team team)
-    {
-        return team switch
-        {
-            ChampionStats.Team.Player => enemyTeamManager,
-            ChampionStats.Team.Enemy => allyTeamManager,
-            _ => null,
-        };
-    }
+	{
+		allyTeamManager = new TeamManager(allyChampions);
+		enemyTeamManager = new TeamManager(enemyChampions);
+		SceneManager.LoadSceneAsync(battleScene.name, LoadSceneMode.Additive);
+	}
+	public void EndGame()
+	{
+		SceneManager.UnloadSceneAsync(battleScene.name);
+	}
+	public TeamManager GetAllyTeam(ChampionStats.Team team)
+	{
+		return team switch
+		{
+			ChampionStats.Team.Player => allyTeamManager,
+			ChampionStats.Team.Enemy => enemyTeamManager,
+			_ => null,
+		};
+	}
+	public TeamManager GetEnemyTeam(ChampionStats.Team team)
+	{
+		return team switch
+		{
+			ChampionStats.Team.Player => enemyTeamManager,
+			ChampionStats.Team.Enemy => allyTeamManager,
+			_ => null,
+		};
+	}
 }
-
-

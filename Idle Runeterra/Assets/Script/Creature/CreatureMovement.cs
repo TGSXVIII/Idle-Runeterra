@@ -7,11 +7,9 @@ using UnityEngine;
 public abstract class CreatureMovement : ChampionStats
 {
 	[Header("Componets")]
-	[SerializeField]
-	[Tooltip("So it can \"walk\"")]
+	[SerializeField, Tooltip("So it can \"walk\"")]
 	private Rigidbody2D rb;
-	[SerializeField]
-	[Tooltip("The Attack Range collider")]
+	[SerializeField, Tooltip("The Attack Range collider")]
 	private BoxCollider2D AttackRange;
 	[Tooltip("You don't want a static image... right?!")]
 	public Animator animator;
@@ -31,6 +29,11 @@ public abstract class CreatureMovement : ChampionStats
 
 	protected virtual void FixedUpdate()
 	{
+		foreach (ShopItem item in GetItems()[ShopItem.State.Passive])
+		{
+			item.GetComponent<PassiveShopItem>().PassiveAbility();
+		}
+
 		Movement();
 	}
 

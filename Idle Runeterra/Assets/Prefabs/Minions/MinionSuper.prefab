@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creature: {fileID: 1081888724417729379}
-  InRange: []
+  targetsInRange: []
 --- !u!1 &1403700172394892691
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,12 +614,13 @@ MonoBehaviour:
   isAlive: 1
   team: 0
   icon: {fileID: 21300000, guid: 69562217c4f645441ba4fa0da1a81c2f, type: 3}
+  shopItem: {fileID: 3460065266281855348, guid: 31e01c9a47bce2e4f9254b76a0e72397, type: 3}
   rb: {fileID: 431409689489971219}
   AttackRange: {fileID: 5086535304128741033}
   animator: {fileID: 6776186043109021464}
   creatureInRange: {fileID: 5015882677829122892}
   weapon: {fileID: 2767087211191699114}
-  AttackAnimationName: Attack
+  AttackAnimationName: MinionSuperAttack
 --- !u!50 &431409689489971219
 Rigidbody2D:
   serializedVersion: 4

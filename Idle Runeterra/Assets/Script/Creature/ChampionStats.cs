@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,14 @@ public abstract class ChampionStats : MonoBehaviour
 	[Header("Health")]
 	[SerializeField]
 	protected float health = 1;
-	//[SerializeField]
-	//private float healthRegn = 0;
+	[SerializeField]
+	private float healthRegn = 0;
 
 	[Header("Mana")]
 	[SerializeField]
-	protected int mana = 0;
-	//[SerializeField]
-	//private int manaRegn = 0;
+	protected float mana = 0;
+	[SerializeField]
+	private float manaRegn = 0;
 
 	[Header("Damage")]
 	[SerializeField]
@@ -43,8 +44,8 @@ public abstract class ChampionStats : MonoBehaviour
 	[SerializeField]
 	[Tooltip("This is in %. 1 = 1%")]
 	protected int critChange = 15; // 15%
-								 //[SerializeField]
-								 //private int CritDamage = 2;
+	[SerializeField]
+	private float CritDamage = 2;
 
 	[Header("Movement speed")]
 	public bool movementAllowed = true;
@@ -62,8 +63,8 @@ public abstract class ChampionStats : MonoBehaviour
 	[SerializeField]
 	protected Sprite icon;
 
-	//[Header("Shop items")]
-	//List<ShopItem> items;
+	[Header("Shop items")]
+	public Dictionary<ShopItem.State, List<ShopItem>> items = new();
 
 	public enum Team
 	{
@@ -79,6 +80,10 @@ public abstract class ChampionStats : MonoBehaviour
 
 	private void Awake()
 	{
+		items.TryAdd(ShopItem.State.Normal, new());
+		items.TryAdd(ShopItem.State.Passive, new());
+		items.TryAdd(ShopItem.State.Active, new());
+
 		gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
 	}
 
@@ -101,46 +106,46 @@ public abstract class ChampionStats : MonoBehaviour
 	public float GetAttackRange() => attackRange;
 	public float GetCritChange() => critChange;
 	public int GetArmor() => armor;
-	public int GetMana() => mana;
+	public float GetMana() => mana;
+	public Dictionary<ShopItem.State, List<ShopItem>> GetItems() => items;
 	public Sprite GetIcon() => icon;
 	public void ReciveDamage(float damage, DamageType type)
 	{
-		float realDamage;
-		switch (type)
-		{
-			case DamageType.TrueDamage:
-				realDamage = damage;
-				break;
-			case DamageType.NormalDamage:
-				float damageRedution = armor;
-				realDamage = damage * (1 - damageRedution);
-				break;
-			case DamageType.MagicDamage:
-				float magicRedution = magicResist;
-				realDamage = damage * (1 - magicRedution);
-				break;
-			default:
-				realDamage = 0;
-				break;
-		}
-		health -= realDamage;
-
-		if (health <= 0)
-		{
-			Die();
-		}
+		health -= type switch { 
+			DamageType.TrueDamage => damage,
+			DamageType.NormalDamage => damage * (1 - armor),
+			DamageType.MagicDamage => damage * (1 - magicResist),
+			_ => 0,
+		};
+		
+		if (health <= 0) Die();
 	}
 
-	// Needs the shop!
-	public void GetItem(/* ShopItem item */)
+	public void AddItem(ShopItem item)
 	{
-		// stats need to be added;
-		//items.Add(item);
+		ItemRemovedOrAdded(item, true);
+		items[item.GetState()].Add(item);
 	}
-	public void RemoveItem(/* ShopItem item */)
+	public void RemoveItem(ShopItem item)
 	{
-		// stats need to be removed;
-		//items.RemoveAt(item);
+		ItemRemovedOrAdded(item, false);
+		items[item.GetState()].Remove(item);
+	}
+
+	private void ItemRemovedOrAdded(ShopItem item, bool added)
+	{
+		int addOrRemove = added ? 1 : -1;
+		health += item.health * addOrRemove;
+		healthRegn += item.healthRegn * addOrRemove;
+		mana += item.mana * addOrRemove;
+		manaRegn += item.manaRegn * addOrRemove;
+		damage += item.damage * addOrRemove;
+		attackSpeed += item.attackSpeed * addOrRemove;
+		attackRange += item.attackRange * addOrRemove;
+		armor += item.armor * addOrRemove;
+		magicResist += item.magicResist * addOrRemove;
+		critChange += item.critChange * addOrRemove;
+		CritDamage += item.critDamage * addOrRemove;
 	}
 
 	protected virtual void Die()
