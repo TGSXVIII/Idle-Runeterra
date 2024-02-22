@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inhibiter : Structure
 {
-    public int RespawnTimer = 90;
+    public int Health;
+    public int RespawnTimer;
 
     // Update is called once per frame
     void Update()

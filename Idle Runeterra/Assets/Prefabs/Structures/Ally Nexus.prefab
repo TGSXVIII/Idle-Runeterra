@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8523484855771054077}
   - component: {fileID: 6165895450637918526}
   m_Layer: 0
-  m_Name: Nexus
+  m_Name: Ally Nexus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

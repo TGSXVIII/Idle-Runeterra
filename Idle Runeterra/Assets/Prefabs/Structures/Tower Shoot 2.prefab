@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1712246734358847731
+--- !u!1 &5948135994965689327
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,84 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7155524321281253126}
-  - component: {fileID: 2637293549182134657}
-  - component: {fileID: 305767070447627698}
+  - component: {fileID: 4943016740260883598}
+  - component: {fileID: 5007764239299177702}
+  - component: {fileID: 5808062386734766780}
+  - component: {fileID: 505717531982710437}
   m_Layer: 0
-  m_Name: Attack Range
+  m_Name: Tower Shoot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7155524321281253126
+--- !u!4 &4943016740260883598
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712246734358847731}
+  m_GameObject: {fileID: 5948135994965689327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.042, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8133308422693887143}
+  m_Children:
+  - {fileID: 449339594264012873}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2637293549182134657
-BoxCollider2D:
+--- !u!114 &5007764239299177702
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712246734358847731}
+  m_GameObject: {fileID: 5948135994965689327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d912e8b6e4b9044fbf77f5e4e66789a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5808062386734766780}
+  movementSpeed: 10
+  tower: {fileID: 0}
+  damageType: 0
+  target: {x: 0, y: 0}
+--- !u!50 &5808062386734766780
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948135994965689327}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &505717531982710437
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948135994965689327}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -65,34 +111,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016771108, y: 0.0014143512}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.00028464198, y: -0.0084629655}
   serializedVersion: 2
-  m_Size: {x: 0.31608385, y: 0.48167288}
-  m_EdgeRadius: 10
---- !u!114 &305767070447627698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712246734358847731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a7820707e815e48907241010b4b4b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creatureDetection: []
-  tower: {fileID: 3942517223161224582}
---- !u!1 &5681887515930943429
+  m_Radius: 0.15271842
+--- !u!1 &6318578547875567738
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,40 +122,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8133308422693887143}
-  - component: {fileID: 678942373636101346}
-  - component: {fileID: 3546557189187372206}
-  - component: {fileID: 3942517223161224582}
+  - component: {fileID: 449339594264012873}
+  - component: {fileID: 2645057902041201601}
+  - component: {fileID: 7656977537733097503}
   m_Layer: 0
-  m_Name: Enemy Tower
+  m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8133308422693887143
+--- !u!4 &449339594264012873
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681887515930943429}
+  m_GameObject: {fileID: 6318578547875567738}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 2, z: 0}
-  m_LocalScale: {x: 18, y: 20, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7155524321281253126}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 4943016740260883598}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &678942373636101346
+--- !u!212 &2645057902041201601
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681887515930943429}
+  m_GameObject: {fileID: 6318578547875567738}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -168,8 +188,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71ecfbaea950b4c4bb596d81410b2b55, type: 3}
-  m_Color: {r: 0.9056604, g: 0.86635816, b: 0.86635816, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6b8c85f2ae2197a46b9711129675cf2e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,13 +199,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3546557189187372206
-BoxCollider2D:
+--- !u!58 &7656977537733097503
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681887515930943429}
+  m_GameObject: {fileID: 6318578547875567738}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -208,44 +228,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026582405, y: -0.0016674176}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.00013059378, y: -0.0074673295}
   serializedVersion: 2
-  m_Size: {x: 0.33223048, y: 0.50071985}
-  m_EdgeRadius: 10
---- !u!114 &3942517223161224582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681887515930943429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0955f852714bc754ebaf31837e298fb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 1000
-  team: 0
-  attackSpeed: 1
-  attackRange: 10
-  attackCooldown: 1
-  timeToNextAttack: 1
-  targetingTime: 1
-  damage: 8
-  damageMultiplier: 0
-  boxCollider2D: {fileID: 3546557189187372206}
-  DetectionRange: {fileID: 305767070447627698}
-  TowerShootSpawnLocation: {fileID: 8133308422693887143}
-  towerShotsPreFab: {fileID: 4866470663281982099, guid: cfd936fa1b0b5784789d6c95ff200d6c, type: 3}
+  m_Radius: 0.151492

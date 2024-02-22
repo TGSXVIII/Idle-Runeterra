@@ -25,15 +25,22 @@ public class Tower : Structure
 
     private void Update()
     {
-        if (timeToNextAttack >= 0)
-        {
-            timeToNextAttack -= Time.deltaTime;
-        }
-        if (timeToNextAttack <= 0 && DetectionRange.creatureDetection.Count > 0)
-        {
-            timeToNextAttack = attackCooldown;
-            Attack();
-        }
+        //if ("inside radious" && targetingTime <= 0)
+        //{        
+            if (timeToNextAttack >= 0)
+            {
+                timeToNextAttack -= Time.deltaTime;
+            }
+            if (timeToNextAttack <= 0 && DetectionRange.creatureDetection.Count > 0)
+            {
+                timeToNextAttack = attackCooldown;
+                Attack();
+            }
+            // if (timeToNextAttack <= 0 && DetectionRange.creatureDetection.Count > 0 && "Has been hit before" "add damage multiplier")
+            //{
+
+            //}
+        //}
     }
 
     private void Attack()
